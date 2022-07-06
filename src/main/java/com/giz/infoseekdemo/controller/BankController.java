@@ -56,7 +56,7 @@ public class BankController {
 	public List<Bank> getBanksByStatus(@RequestParam(value = "status") String status){
 		return bankService.getBanksByStatus(status);
 	}
-	
+
 	@GetMapping(path = "/profit")
 	public List<Bank> getBanksByAnnualProfit(@RequestParam(value = "profit") double profit){
 		return bankService.getBanksByAnnualProfit(profit);		

@@ -16,19 +16,19 @@ public class BankService {
 	@Autowired
 	private BankRepository bankRepository;
 	
-	
+	//Post - Create Bank 
 	public Bank createBank(Bank bank) {
 		return bankRepository.save(bank);
 	}
-
+	//Get - Get All Banks
 	public List<Bank> getAllBanks() {		
 		return bankRepository.findAll();
 	}
-
+	//Get - Get By Id
 	public Optional<Bank> getBankById(long bankId) {		
 		return bankRepository.findById(bankId);
 	}
-
+	//Put - Update Bank
 	public Bank updateBank(long bankId, Bank bank) {
 		Bank existingBank = bankRepository.getById(bankId);
 		if (existingBank != null) {
@@ -41,15 +41,15 @@ public class BankService {
 		}
 		return bankRepository.save(existingBank);
 	}
-
+	//Delete - Delete Bank
 	public void deleteBank(long bankId) {
 		bankRepository.deleteById(bankId);
 	}
-
+	//Get - Get Banks By Status
 	public List<Bank> getBanksByStatus(String status) {		
 		return bankRepository.findByStatus(status);
 	}
-
+	//Get - Get Banks By Profit
 	public List<Bank> getBanksByAnnualProfit(double profit) {	
 		return bankRepository.findByAnnualProfitGreaterThan(profit);
 	}
